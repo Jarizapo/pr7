@@ -202,16 +202,16 @@ public class Panel extends JPanel {
 
 	// Establece el nivel de progreso n en el JProgressBar progreso1
 	public void progreso1(int n) {
-
+		progreso1.setValue(n);
 	}
 
 	// Establece el nivel de progreso n en el JProgressBar progreso2
 	public void progreso2(int n) {
-
+		progreso2.setValue(n);
 	}
 
 	// Establece el nivel de progreso n en el JProgressBar progreso3
 	public void progreso3(int n) {
-
+		progreso3.setValue(n);
 	}
 }
