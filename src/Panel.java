@@ -97,31 +97,53 @@ public class Panel extends JPanel {
 
 	// Devuelve el entero que tiene el JTextField numero 1
 	public int numero1() {
-		return 0;
+        return Integer.parseInt(numero1.getText());
 	}
 
 	// Devuelve el entero que tiene el JTextField numero 2
 	public int numero2() {
-		return 0;
+        return Integer.parseInt(numero2.getText());
 	}
 
 	// Devuelve el entero que tiene el JTextField numero 3
 	public int numero3() {
-		return 0;
+        return Integer.parseInt(numero3.getText());
 	}
 
 	// Añade a JTextArea listaPrimos1 la lista que se le pasa.
 	// Recuerda meter retornos de carro para que salga como en la captura de
 	// pantalla
 	public void escribePrimosTwin(List<Primos> list) {
-
+		int n = 0;
+		
+		for(Primos primo : list)
+		{
+			listaPrimos1.append(primo + " ");
+			n++;
+			
+			if(n%5 == 0)
+			{
+				listaPrimos1.append("\n");
+			}
+		}
 	}
 
 	// Añade a JTextArea listaPrimos2 la lista que se le pasa.
 	// Recuerda meter retornos de carro para que salga como en la captura de
 	// pantalla
 	public void escribePrimosCousin(List<Primos> list) {
-
+		int n = 0;
+		
+		for(Primos primo : list)
+		{
+			listaPrimos2.append(primo + " ");
+			n++;
+			
+			if(n%5 == 0)
+			{
+				listaPrimos1.append("\n");
+			}
+		}
 	}
 
 	// Añade a JTextArea listaPrimos3 la lista que se le pasa.
@@ -129,42 +151,53 @@ public class Panel extends JPanel {
 	// pantalla
 
 	public void escribePrimosSexy(List<Primos> list) {
-
+		int n = 0;
+		
+		for(Primos primo : list)
+		{
+			listaPrimos3.append(primo + " ");
+			n++;
+			
+			if(n%5 == 0)
+			{
+				listaPrimos1.append("\n");
+			}
+		}
 	}
 
 	// Limpia el JTextArea listaPrimos1
 	public void limpiaAreaTwin() {
-
+		listaPrimos1.setText("");
 	}
 
 	// Limpia el JTextArea listaPrimos2
 	public void limpiaAreaCousin() {
-
+		listaPrimos2.setText("");
 	}
 
 	// Limpia el JTextArea listaPrimos3
 	public void limpiaAreaSexy() {
-
+		listaPrimos3.setText("");
 	}
 
 	// Establece mensaje que se le pasa el JLabel mensaje
 	public void mensaje(String str) {
-
+		mensaje.setText(str);
 	}
 
 	// Establece mensaje que se le pasa el JLabel mensaje1
 	public void mensajeTwin(String str) {
-		
+		mensaje1.setText(str);		
 	}
 
 	// Establece mensaje que se le pasa el JLabel mensaje2
 	public void mensajeCousin(String str) {
-
+		mensaje2.setText(str);
 	}
 
 	// Establece mensaje que se le pasa el JLabel mensaje3
 	public void mensajeSexy(String str) {
-
+		mensaje3.setText(str);
 	}
 
 	// Establece el nivel de progreso n en el JProgressBar progreso1
