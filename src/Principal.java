@@ -10,6 +10,8 @@ public class Principal {
         JFrame ventana = new JFrame("Numeros Primos");
         
         Panel panel = new Panel();
+        Controlador controlador = new Controlador(panel);
+        panel.controlador(controlador);
 
         ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         ventana.getContentPane().add(panel);
