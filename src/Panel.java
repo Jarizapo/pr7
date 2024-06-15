@@ -133,7 +133,7 @@ public class Panel extends JPanel
 		
 		for(Primos primo : list)
 		{
-			listaPrimos1.append(primo + " ");
+			listaPrimos1.append(n + ": " + primo + " ");
 			n++;
 			
 			if(n%5 == 0)
@@ -152,12 +152,12 @@ public class Panel extends JPanel
 		
 		for(Primos primo : list)
 		{
-			listaPrimos2.append(primo + " ");
+			listaPrimos2.append(n + ": " + primo + " ");
 			n++;
 			
 			if(n%5 == 0)
 			{
-				listaPrimos1.append("\n");
+				listaPrimos2.append("\n");
 			}
 		}
 	}
@@ -172,12 +172,12 @@ public class Panel extends JPanel
 		
 		for(Primos primo : list)
 		{
-			listaPrimos3.append(primo + " ");
+			listaPrimos3.append(n + ": " + primo + " ");
 			n++;
 			
 			if(n%5 == 0)
 			{
-				listaPrimos1.append("\n");
+				listaPrimos3.append("\n");
 			}
 		}
 	}
