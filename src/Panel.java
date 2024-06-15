@@ -7,8 +7,8 @@ import javax.swing.*;
 import java.util.*;
 import java.util.List;
 
-public class Panel extends JPanel {
-
+public class Panel extends JPanel
+{
 	private JLabel etiqueta1 = new JLabel("¿cuántos de primos twin quieres?");
 	private JTextField numero1 = new JTextField(3);
 	private JLabel etiqueta2 = new JLabel("¿cuántos de primos cousin quieres?");
@@ -91,29 +91,44 @@ public class Panel extends JPanel {
 
 	// Debes registrar el ctr como observador de los botones y JTextField
 	// correspondiendes
-	public void controlador(ActionListener ctr) {
-
+	public void controlador(ActionListener ctr)
+	{
+        numero1.addActionListener(ctr);
+        numero1.setActionCommand("TWIN");
+        
+        numero2.addActionListener(ctr);
+        numero2.setActionCommand("COUSIN");
+        
+        numero3.addActionListener(ctr);
+        numero3.setActionCommand("SEXY");
+        
+        fin.addActionListener(ctr);
+        fin.setActionCommand("FIN");
 	}
 
 	// Devuelve el entero que tiene el JTextField numero 1
-	public int numero1() {
+	public int numero1()
+	{
         return Integer.parseInt(numero1.getText());
 	}
 
 	// Devuelve el entero que tiene el JTextField numero 2
-	public int numero2() {
+	public int numero2()
+	{
         return Integer.parseInt(numero2.getText());
 	}
 
 	// Devuelve el entero que tiene el JTextField numero 3
-	public int numero3() {
+	public int numero3()
+	{
         return Integer.parseInt(numero3.getText());
 	}
 
 	// Añade a JTextArea listaPrimos1 la lista que se le pasa.
 	// Recuerda meter retornos de carro para que salga como en la captura de
 	// pantalla
-	public void escribePrimosTwin(List<Primos> list) {
+	public void escribePrimosTwin(List<Primos> list)
+	{
 		int n = 0;
 		
 		for(Primos primo : list)
@@ -131,7 +146,8 @@ public class Panel extends JPanel {
 	// Añade a JTextArea listaPrimos2 la lista que se le pasa.
 	// Recuerda meter retornos de carro para que salga como en la captura de
 	// pantalla
-	public void escribePrimosCousin(List<Primos> list) {
+	public void escribePrimosCousin(List<Primos> list)
+	{
 		int n = 0;
 		
 		for(Primos primo : list)
@@ -150,7 +166,8 @@ public class Panel extends JPanel {
 	// Recuerda meter retornos de carro para que salga como en la captura de
 	// pantalla
 
-	public void escribePrimosSexy(List<Primos> list) {
+	public void escribePrimosSexy(List<Primos> list)
+	{
 		int n = 0;
 		
 		for(Primos primo : list)
@@ -166,52 +183,62 @@ public class Panel extends JPanel {
 	}
 
 	// Limpia el JTextArea listaPrimos1
-	public void limpiaAreaTwin() {
+	public void limpiaAreaTwin()
+	{
 		listaPrimos1.setText("");
 	}
 
 	// Limpia el JTextArea listaPrimos2
-	public void limpiaAreaCousin() {
+	public void limpiaAreaCousin()
+	{
 		listaPrimos2.setText("");
 	}
 
 	// Limpia el JTextArea listaPrimos3
-	public void limpiaAreaSexy() {
+	public void limpiaAreaSexy()
+	{
 		listaPrimos3.setText("");
 	}
 
 	// Establece mensaje que se le pasa el JLabel mensaje
-	public void mensaje(String str) {
+	public void mensaje(String str)
+	{
 		mensaje.setText(str);
 	}
 
 	// Establece mensaje que se le pasa el JLabel mensaje1
-	public void mensajeTwin(String str) {
+	public void mensajeTwin(String str)
+	{
 		mensaje1.setText(str);		
 	}
 
 	// Establece mensaje que se le pasa el JLabel mensaje2
-	public void mensajeCousin(String str) {
+	public void mensajeCousin(String str)
+	{
 		mensaje2.setText(str);
 	}
 
 	// Establece mensaje que se le pasa el JLabel mensaje3
-	public void mensajeSexy(String str) {
+	public void mensajeSexy(String str)
+	{
 		mensaje3.setText(str);
 	}
 
 	// Establece el nivel de progreso n en el JProgressBar progreso1
-	public void progreso1(int n) {
+	public void progreso1(int n)
+	{
 		progreso1.setValue(n);
 	}
 
 	// Establece el nivel de progreso n en el JProgressBar progreso2
-	public void progreso2(int n) {
+	public void progreso2(int n)
+	{
 		progreso2.setValue(n);
 	}
 
 	// Establece el nivel de progreso n en el JProgressBar progreso3
-	public void progreso3(int n) {
+	public void progreso3(int n)
+	{
 		progreso3.setValue(n);
 	}
 }
