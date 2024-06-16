@@ -123,20 +123,21 @@ public class Panel extends JPanel
 	{
         return Integer.parseInt(numero3.getText());
 	}
-
+    private int nTwin = 0;
+    private int nCousin = 0;
+    private int nSexy = 0;
+    
 	// Añade a JTextArea listaPrimos1 la lista que se le pasa.
 	// Recuerda meter retornos de carro para que salga como en la captura de
 	// pantalla
 	public void escribePrimosTwin(List<Primos> list)
-	{
-		int n = 0;
-		
+	{		
 		for(Primos primo : list)
 		{
-			listaPrimos1.append(n + ": " + primo + " ");
-			n++;
+			listaPrimos1.append(nTwin + ": " + primo + " ");
+			nTwin++;
 			
-			if(n%5 == 0)
+			if(nTwin%5 == 0)
 			{
 				listaPrimos1.append("\n");
 			}
@@ -147,15 +148,13 @@ public class Panel extends JPanel
 	// Recuerda meter retornos de carro para que salga como en la captura de
 	// pantalla
 	public void escribePrimosCousin(List<Primos> list)
-	{
-		int n = 0;
-		
+	{		
 		for(Primos primo : list)
 		{
-			listaPrimos2.append(n + ": " + primo + " ");
-			n++;
+			listaPrimos2.append(nCousin + ": " + primo + " ");
+			nCousin++;
 			
-			if(n%5 == 0)
+			if(nCousin%5 == 0)
 			{
 				listaPrimos2.append("\n");
 			}
@@ -168,14 +167,12 @@ public class Panel extends JPanel
 
 	public void escribePrimosSexy(List<Primos> list)
 	{
-		int n = 0;
-		
 		for(Primos primo : list)
 		{
-			listaPrimos3.append(n + ": " + primo + " ");
-			n++;
+			listaPrimos3.append(nSexy + ": " + primo + " ");
+			nSexy++;
 			
-			if(n%5 == 0)
+			if(nSexy%5 == 0)
 			{
 				listaPrimos3.append("\n");
 			}
@@ -185,19 +182,22 @@ public class Panel extends JPanel
 	// Limpia el JTextArea listaPrimos1
 	public void limpiaAreaTwin()
 	{
-		listaPrimos1.setText("");
+        listaPrimos1.setText("");
+        nTwin = 0;
 	}
 
 	// Limpia el JTextArea listaPrimos2
 	public void limpiaAreaCousin()
 	{
 		listaPrimos2.setText("");
+        nCousin = 0;
 	}
 
 	// Limpia el JTextArea listaPrimos3
 	public void limpiaAreaSexy()
 	{
 		listaPrimos3.setText("");
+        nSexy = 0;
 	}
 
 	// Establece mensaje que se le pasa el JLabel mensaje

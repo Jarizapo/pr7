@@ -4,7 +4,9 @@ import java.awt.event.ActionListener;
 public class Controlador implements ActionListener
 {
     private Panel panel;
-    private Worker worker;
+    private Worker workerTwin;
+    private Worker workerCousin;
+    private Worker workerSexy;
 
     public Controlador(Panel panel)
     {
@@ -22,24 +24,31 @@ public class Controlador implements ActionListener
             case "TWIN":
                 num = panel.numero1();
                 panel.limpiaAreaTwin();
+                workerTwin = new Worker(num, panel, tipo);
+                workerTwin.execute();
                 break;
             case "COUSIN":
             	num = panel.numero2();
                 panel.limpiaAreaCousin();
+                workerCousin = new Worker(num, panel, tipo);
+                workerCousin.execute();
                 break;
             case "SEXY":
             	num = panel.numero3();
                 panel.limpiaAreaSexy();
+                workerSexy = new Worker(num, panel, tipo);
+                workerSexy.execute();
                 break;
             case "FIN":
-                if (worker != null)
-                    worker.cancel(true);
+                if (workerTwin != null)
+                	workerTwin.cancel(true);
+                if (workerCousin != null)
+                	workerCousin.cancel(true);
+                if (workerSexy != null)
+                	workerSexy.cancel(true);
                 
                 panel.mensaje("Operaciones canceladas");
                 break;
         }
-        
-        worker = new Worker(num, panel, tipo);
-        worker.execute();
     }
 }
