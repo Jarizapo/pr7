@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.concurrent.CancellationException;
 import java.util.concurrent.ExecutionException;
 
-public class Worker extends SwingWorker<List<Primos>, Void>
+public class Worker extends SwingWorker<Void, Primos>
 {
     private int n;
     private Panel panel;
@@ -59,10 +59,8 @@ public class Worker extends SwingWorker<List<Primos>, Void>
     }
     
     @Override
-    protected List<Primos> doInBackground() throws Exception
+    protected Void doInBackground() throws Exception
     {
-        List<Primos> lista = new ArrayList<>();
-        
         int primosTotales = 0;
         int num = 3;
         
@@ -74,8 +72,7 @@ public class Worker extends SwingWorker<List<Primos>, Void>
         	
             if (parNumerosValido)
             {
-                lista.add(new Primos(num, num + distanciaDeTipo(), primosTotales));
-                
+                publish(new Primos(num, num + distanciaDeTipo(), primosTotales));
                 primosTotales++;
                 
                 setProgress((primosTotales * 100) / n);
@@ -84,9 +81,29 @@ public class Worker extends SwingWorker<List<Primos>, Void>
             num++;
         }
         
-        return lista;
+        return null;
     }
 
+    @Override
+    protected void process(List<Primos> chunks)
+    {
+        for (Primos primo : chunks)
+        {
+            switch (tipo)
+            {
+                case "TWIN":
+                    panel.escribePrimosTwin(List.of(primo));
+                    break;
+                case "COUSIN":
+                    panel.escribePrimosCousin(List.of(primo));
+                    break;
+                case "SEXY":
+                    panel.escribePrimosSexy(List.of(primo));
+                    break;
+            }
+        }
+    }
+    
     private void tareaCancelada()
     {
         switch (tipo)
@@ -111,20 +128,17 @@ public class Worker extends SwingWorker<List<Primos>, Void>
             switch (tipo)
             {
                 case "TWIN":
-                    panel.escribePrimosTwin(get());
                     panel.mensajeTwin("Primos twin calculados");
                     break;
                 case "COUSIN":
-                    panel.escribePrimosCousin(get());
                     panel.mensajeCousin("Primos cousin calculados");
                     break;
                 case "SEXY":
-                    panel.escribePrimosSexy(get());
                     panel.mensajeSexy("Primos sexy calculados");
                     break;
             }
         }
-        catch (InterruptedException | ExecutionException | CancellationException e)
+        catch (CancellationException e)
         {
         	tareaCancelada();
         }
