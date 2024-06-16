@@ -7,6 +7,7 @@ public class Controlador implements ActionListener
     private Worker workerTwin;
     private Worker workerCousin;
     private Worker workerSexy;
+    
     private ControladorBarra ctrTwin;
     private ControladorBarra ctrCousin;
     private ControladorBarra ctrSexy;
@@ -38,14 +39,14 @@ public class Controlador implements ActionListener
             	num = panel.numero2();
                 panel.limpiaAreaCousin();
                 workerCousin = new Worker(num, panel, tipo);
-                workerTwin.addPropertyChangeListener(ctrCousin);
+                workerCousin.addPropertyChangeListener(ctrCousin);
                 workerCousin.execute();
                 break;
             case "SEXY":
             	num = panel.numero3();
                 panel.limpiaAreaSexy();
                 workerSexy = new Worker(num, panel, tipo);
-                workerTwin.addPropertyChangeListener(ctrSexy);
+                workerSexy.addPropertyChangeListener(ctrSexy);
                 workerSexy.execute();
                 break;
             case "FIN":
