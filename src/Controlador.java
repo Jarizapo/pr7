@@ -17,7 +17,8 @@ public class Controlador implements ActionListener
         String tipo = e.getActionCommand();
         int num = 0;
 
-        switch (tipo) {
+        switch (tipo)
+        {
             case "TWIN":
                 num = panel.numero1();
                 panel.limpiaAreaTwin();
